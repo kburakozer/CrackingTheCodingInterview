@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace CrackInterview.Linkedlist
 {
     public class MyLinkedList
@@ -10,6 +12,72 @@ namespace CrackInterview.Linkedlist
             head = null;
             tail = null;
         }
+
+        public void RemoveDubs()
+        {
+            HashSet<int> set = new HashSet<int>();
+            Node prev = null;
+            Node current = head;
+
+            while(current != null)
+            {
+                if(set.Contains(current.data))
+                {
+                    prev.next = current.next;
+                }
+                else
+                {
+                    set.Add(current.data);
+                    prev = current;
+                    
+                }
+                current = current.next;
+            }
+
+        }
+
+        public void RemoveDubsNoBuff()
+        {
+            Node current = head;
+
+            while(current != null)
+            {
+                Node runner = current;
+                
+                while(runner.next != null)
+                {
+                    if(runner.next.data == current.data)
+                    {
+                        runner.next = runner.next.next;
+                    }
+                    else
+                    {
+                        runner = runner.next;
+                    }
+                }
+                current = current.next;
+            }
+            
+        }
+
+        public void KToLast(int k)
+        {
+            // Node current = head;
+            // Node start = head;
+
+            // for(var i = 0; i < k; k++)
+            // {
+            //     current = current.next;
+            //     start = start.next;
+            // }
+
+            // while(start != null)
+            // {
+            //     Console.WriteLine(start.data);
+            //     start = start.next;
+            // }
+        }
+
 
         public void AddBack(int n)
         {
@@ -30,6 +98,7 @@ namespace CrackInterview.Linkedlist
                 tail =current.next;
             }
         }
+
 
         public void Delete(int n)
         {

@@ -7,6 +7,9 @@ myList.AddBack(2);
 myList.AddBack(3);
 myList.AddBack(4);
 myList.AddBack(5);
-myList.Delete(3);
+myList.AddBack(3);
+myList.AddBack(5);
+myList.AddBack(1);
 
-myList.Print();
+myList.KToLast(4);
+// myList.Print();
