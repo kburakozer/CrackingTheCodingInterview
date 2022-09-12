@@ -10,6 +10,9 @@ myList.AddBack(5);
 myList.AddBack(3);
 myList.AddBack(5);
 myList.AddBack(1);
+myList.Print();
 
-myList.KToLast(4);
-// myList.Print();
+Console.WriteLine("After delete middle operation");
+
+
+myList.Print();
