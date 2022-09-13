@@ -78,7 +78,43 @@ namespace CrackInterview.Linkedlist
             // }
         }
 
+        public void Partition(int n)
+        {
+            List<int> left = new List<int>();
+            List<int> right = new List<int>();
 
+            Node current = head;
+            while(current != null)
+            {
+                if(current.data >= n)
+                {
+                    right.Add(current.data);
+                    current = current.next;
+                }
+                else
+                {
+                    left.Add(current.data);
+                    current = current.next;
+                }
+            }
+            head = new Node(left[0]);
+            current = head;
+            for(int i = 1; i < left.Count; i++)
+            {
+                Node node = new Node(left[i]);
+                current.next = node;
+                Node temp = current.next;
+                current = temp;
+                
+            }
+            for(int i = 0; i < right.Count; i++)
+            {
+                Node node = new Node(right[i]);
+                current.next = node;
+                Node temp = current.next;
+                current = temp;
+            }
+        }
 
         public void AddBack(int n)
         {
