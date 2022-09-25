@@ -7,11 +7,9 @@ myList.AddBack(5);
 myList.AddBack(8);
 myList.AddBack(5);
 myList.AddBack(10);
-myList.AddBack(2);
+myList.AddBack(5);
 myList.AddBack(1);
 
-
-
-
-
-myList.Print();
+Solutions s = new Solutions();
+s.KthToLast(myList, 3);
+// myList.Print(myList);

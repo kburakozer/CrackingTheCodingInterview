@@ -2,12 +2,18 @@ namespace CrackInterview.Linkedlist
 {
     public class Node
     {
-        public int data {get; set;}
-        public Node? next = null;
+        public int Data {get; set;}
+        public Node? next {get; set;}
         
-        public Node (int n)
+        public Node (int d)
         {
-            data = n;
+            Data = d;
+            next = null;
+        }
+
+        public Node ()
+        {
+
         }
     }
 }
