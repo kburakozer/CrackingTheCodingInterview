@@ -47,12 +47,42 @@ namespace CrackInterview.Linkedlist
             return current!;
         }
     
-        public void DelMidNode (MyLinkedList list)
+        public void DelMidNode (Node n)
         {
-            
+            if (n == null || n.next == null)
+            {
+                return;
+            }
+            Node next = n.next;
+            n.Data = next!.Data;
+            n.next = next.next;
         }
 
+        public Node Partition (MyLinkedList list, int x)
+        {
+            Node? node = list.head;
+            Node? head = node;
+            Node? tail = node;
 
+            while(node != null)
+            {
+                Node next = node.next!;
+                if(node.Data < x)
+                {
+                    node.next = head;
+                    head = node;
+                }
+                else
+                {
+                    tail!.next = node;
+                    tail = node;
+                }
+                node = next;
+            }
+            tail!.next = null;
+            return head!;
+        }
     
+
     }
 }
