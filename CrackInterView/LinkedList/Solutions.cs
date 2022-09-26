@@ -83,6 +83,33 @@ namespace CrackInterview.Linkedlist
             return head!;
         }
     
+        public Node SumList(Node l1, Node l2)
+        {
+            Node dummyHead = new Node();
+            Node l3 = dummyHead;
 
+            int carry = 0;
+            while(l1 != null || l2 != null)
+            {
+                var val_1 = (l1 != null) ? l1.Data : 0;
+                var val_2 = (l2 != null) ? l2.Data : 0;
+
+                var sum = val_1 + val_2 + carry;
+
+                carry = sum / 10;
+                var lastDigit = sum % 10;
+
+                Node newNode = new Node(lastDigit);
+
+                l3.next = newNode;
+                l3 = l3.next;
+
+                if (l1 != null)
+                    l1 = l1.next!;
+                if (l2 != null)
+                    l2 = l2.next!;
+            }
+            return l3;
+        }
     }
 }
