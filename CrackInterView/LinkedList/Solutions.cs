@@ -58,29 +58,32 @@ namespace CrackInterview.Linkedlist
             n.next = next.next;
         }
 
-        public Node Partition (MyLinkedList list, int x)
+        public Node Partition (Node head, int x)
         {
-            Node? node = list.head;
-            Node? head = node;
-            Node? tail = node;
+            Node beforeHead = new Node(0);
+            Node before = beforeHead;
+            Node afterHead = new Node(0);
+            Node after = afterHead;
 
-            while(node != null)
+            while(head != null)
             {
-                Node next = node.next!;
-                if(node.Data < x)
+                if(head.Data < x)
                 {
-                    node.next = head;
-                    head = node;
+                    before.next = head;
+                    before = before.next;
                 }
                 else
                 {
-                    tail!.next = node;
-                    tail = node;
+                    after.next = head;
+                    after = after.next;
                 }
-                node = next;
+
+                head = head.next!;
             }
-            tail!.next = null;
-            return head!;
+                after.next = null;
+                before.next = afterHead.next;
+
+                return beforeHead.next!;
         }
     
         public Node SumList(Node l1, Node l2)
