@@ -114,5 +114,39 @@ namespace CrackInterview.Linkedlist
             }
             return l3;
         }
+    
+        public bool IsPalindrome(Node head)
+        {
+            var reversed = Reverse(head);
+
+            while(reversed != null && head != null)
+            {
+                if(reversed.Data != head.Data)
+                {
+                    return false;
+                }
+                reversed = reversed.next;
+                head = head.next!;
+            }
+            return true;
+        }
+
+        public Node Reverse(Node node)
+        {
+            Node? reversed = null;
+            while(node != null)
+            {
+                Node newNode = new Node(node.Data);
+                newNode.next = reversed;
+                reversed = newNode;
+                node = node.next!;
+            }
+
+            return reversed!;            
+        }   
+   
+   
+   
+   
     }
 }
