@@ -145,7 +145,9 @@ namespace CrackInterview.Linkedlist
             return reversed!;            
         }   
    
-   
+       // TODO Intersection
+
+       // TODO Loop
    
    
     }
