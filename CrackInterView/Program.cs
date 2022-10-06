@@ -1,14 +1,15 @@
 ﻿using CrackInterview.Linkedlist;
-
-MyLinkedList myList = new MyLinkedList();
-
-myList.AddBack(0);
-myList.AddBack(1);
-myList.AddBack(2);
-myList.AddBack(1);
-myList.AddBack(0);
+using CrackInterview.Tree;
 
 
-Solutions s = new Solutions();
-Console.WriteLine(s.IsPalindrome(myList.head));
-// myList.Print(myList);
+MyTree tree = new MyTree();
+
+tree.Add(14);
+tree.Add(5);
+tree.Add(7);
+tree.Add(24);
+tree.Add(20);
+tree.Add(26);
+tree.Add(3);
+
+tree.PostOrderTraversal(tree.root);
